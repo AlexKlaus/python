@@ -1,26 +1,14 @@
 
-duration = [53, 153, 4153, 400153, 3509743]
+# duration = [53, 153, 4153, 400153, 3509743]
+sec = [31556926, 2629743, 86400, 3600, 60, 1]
+human_format = ['год', 'мес', 'дн', 'час', 'мин', 'сек']
+human_time = ""
+duration = int(input("Введите длительность времени в секундах: "))
 
-for dur in duration:
-    human_time = ""
-    print(f"{dur} сек:")
-    if dur // 2629743:
-        months = dur // 2629743
-        dur %= 2629743
-        human_time += f"{months} мес "
-    if dur // 86400:
-        days = dur // 86400
-        dur %= 86400
-        human_time += f"{days} дн "
-    if dur // 3600:
-        hours = dur // 3600
-        dur %= 3600
-        human_time += f"{hours} час "
-    if dur // 60:
-        minutes = dur // 60
-        dur %= 60
-        human_time += f"{minutes} мин "
-    if dur:
-        seconds = dur % 60
-        human_time += f"{seconds} сек"
-    print(human_time)
+for idx in range(0, len(sec)):
+    if duration // sec[idx]:
+        months = duration // 2629743
+        human_time += f"{duration // sec[idx]} {human_format[idx]} "
+        duration %= sec[idx]
+
+print(human_time)
