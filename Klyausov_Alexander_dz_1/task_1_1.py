@@ -7,7 +7,6 @@ duration = int(input("Введите длительность времени в 
 
 for idx in range(0, len(sec)):
     if duration // sec[idx]:
-        months = duration // 2629743
         human_time += f"{duration // sec[idx]} {human_format[idx]} "
         duration %= sec[idx]
 
