@@ -1,6 +1,7 @@
 weather = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
 print("Id:", id(weather))
 
+# Обработка списка
 for item in weather:
 
     # Если строка содержит знаки '+' или '-', и оставшаяса чать является числом, и длина числа меньше 2
@@ -21,5 +22,10 @@ for item in weather:
     elif item.isdigit() and (weather[weather.index(item) - 1] != '"'):
         weather.insert((weather.index(item)), '"')  # добавлем кавычки
         weather.insert((weather.index(item) + 1), '"')
-print(id(weather))
-print(weather)
+
+# Формируем строку из обработанного списка
+weather_str = f"{weather[0]} {''.join(weather[1:4])} {weather[4]} " \
+              f"{''.join(weather[5:8])} {' '.join(weather[8:12])} " \
+              f"{''.join(weather[12:15])} {weather[-1]}"
+print(weather_str)
+print("Id:", id(weather))
