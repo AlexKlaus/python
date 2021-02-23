@@ -1,5 +1,4 @@
 weather = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
-print(id(weather), weather)
 
 for item_id, item in enumerate(weather):
     # Если эдемент списка является числом или спецсимволом но не кавычки, и прдыдущий элемент не кавычки
@@ -13,7 +12,7 @@ for item_id, item in enumerate(weather):
         weather.insert(item_id, '"')
         weather.insert(item_id + 2, '"')
 
-print(id(weather), weather)
+print(weather)
 print(f"{weather[0]} {''.join(weather[1:4])} {weather[4]} " 
       f"{''.join(weather[5:8])} {' '.join(weather[8:12])} "
       f"{''.join(weather[12:15])} {weather[-1]}"
