@@ -1,14 +1,12 @@
 weather = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
 
 for item_id, item in enumerate(weather):
-    # Если эдемент списка является числом или спецсимволом но не кавычки, и прдыдущий элемент не кавычки
+    # Если эдемент списка является числом или содержит символы но не кавычки, и прдыдущий элемент не кавычки
     if (item.isdigit() or (item.isalnum() is False and item != '"')) and weather[item_id - 1] != '"':
-        # Если элемент списка содержит спецсимвол и оставшаяся меньше двух символов, то дописываем ноль
-        if item.isalnum() is False and len(item[1:]) < 2:
-            weather[item_id] = f"{item[0]}0{item[1:]}"
-        # Если число состои менее чем из двух символов, дописываем ноль
-        elif len(item) < 2:
-            weather[item_id] = f"0{item}"
+        if item.isalnum() is False:
+            weather[item_id] = item.zfill(3)
+        else:
+            weather[item_id] = item.zfill(2)
         weather.insert(item_id, '"')
         weather.insert(item_id + 2, '"')
 
