@@ -1,4 +1,8 @@
+from functools import wraps
+
+
 def type_logger(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         if kwargs:  # Решение для именованых аргументов
             args += tuple(kwargs.values())
