@@ -9,7 +9,9 @@ class Matrix:
 
     def __add__(self, other):
         # Проверка равенства размерности матриц
-        if sum(len(line) for line in self.list_of_lists) == sum(len(line) for line in other.list_of_lists):
+        # Проверка равенства количества строк, и  равенства количества элементов
+        if (len(self.list_of_lists) == len(other.list_of_lists)) and \
+                (sum(len(line) for line in self.list_of_lists) == sum(len(line) for line in other.list_of_lists)):
             result = [
                 [self_item + other_item for self_item, other_item in zip(self_line, other_line)]
                 for self_line, other_line in zip(self.list_of_lists, other.list_of_lists)
@@ -26,8 +28,8 @@ matrix_1 = Matrix([
 ])
 matrix_2 = Matrix([
     [58, 16, 24, 5],
-    [478, 23, 48, 5],
-    [1, 1, 1, 5]
+    [478, 23, 48, 48],
+    [1, 1, 1, 58]
 ])
 ma = matrix_1 + matrix_2
 print(ma)
