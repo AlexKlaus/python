@@ -11,7 +11,8 @@ class Matrix:
         # Проверка равенства размерности матриц
         # Проверка равенства количества строк, и  равенства количества элементов
         if (len(self.list_of_lists) == len(other.list_of_lists)) and \
-                (sum(len(line) for line in self.list_of_lists) == sum(len(line) for line in other.list_of_lists)):
+                (False not in (len(s_line) == len(o_line)
+                               for s_line, o_line in zip(self.list_of_lists, other.list_of_lists))):
             result = [
                 [self_item + other_item for self_item, other_item in zip(self_line, other_line)]
                 for self_line, other_line in zip(self.list_of_lists, other.list_of_lists)
